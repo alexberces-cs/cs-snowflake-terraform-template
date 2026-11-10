@@ -31,14 +31,9 @@ jobs:
         run: terraform validate
         working-directory: snowflake-terraform
 
-      - name: Print Environment Variables
-        run: printenv
-
       - name: Terraform Plan
         if: github.event_name == 'pull_request'
-        run: |
-          export TF_LOG=DEBUG
-          terraform plan -var-file="dev.tfvars"
+        run: terraform plan -var-file="dev.tfvars"
         working-directory: snowflake-terraform
         env:
           TF_VAR_snowflake_org: ${{ secrets.SNOWFLAKE_ORG }}
