@@ -1,1 +1,1 @@
-# sf-tf-test
+# cs-snowflake-terraform-template
