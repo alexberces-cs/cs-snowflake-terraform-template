@@ -3,7 +3,7 @@ variable "snowflake_account" {}
 variable "snowflake_org" {}
 variable "snowflake_user" {}
 variable "snowflake_role" {}
-variable "snowflake_private_key" {sensitive = true}
+variable "snowflake_private_key" { sensitive = true }
 
 # snowflake objects
 variable "db_name" {}
