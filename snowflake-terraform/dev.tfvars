@@ -14,3 +14,30 @@ elt_db_role_name = "ELT_DEV_ROLE"
 
 bi_role_name    = "BI_DEV_ROLE"
 bi_db_role_name = "BI_DEV_ROLE"
+
+# --- NEW -----------------------------------------------------------------
+
+# cost controls: credits per month across both warehouses
+resource_monitor_name        = "DEV_MONITOR"
+monthly_credit_quota         = 20
+monitor_notify_users         = []   # e.g. ["JANE_DOE"], users need a verified email
+statement_timeout_in_seconds = 3600
+
+# BI can read these schemas only
+bi_read_schemas = ["TGT"]
+
+# service users: paste each tool's PUBLIC key on one line, without BEGIN/END lines
+elt_user_name       = "SVC_ELT_DEV"
+bi_user_name        = "SVC_BI_DEV"
+elt_user_public_key = "REPLACE_WITH_ELT_PUBLIC_KEY"
+bi_user_public_key  = "REPLACE_WITH_BI_PUBLIC_KEY"
+
+# network policy for the service users: leave empty to allow any IP
+network_policy_name = "DEV_SERVICE_USERS_POLICY"
+allowed_ip_list     = []   # e.g. ["203.0.113.0/24"]
+
+# ingestion from Azure (optional)
+enable_ingestion         = false
+storage_integration_name = "DEV_AZURE_LANDING_INT"
+azure_tenant_id          = "00000000-0000-0000-0000-000000000000"
+landing_url              = "azure://<storageaccount>.blob.core.windows.net/<container>/dev/"
