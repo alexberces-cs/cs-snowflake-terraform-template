@@ -1,0 +1,51 @@
+name: Terraform deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'snowflake-terraform/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  TF_VERSION: 1.16.1
+  TF_VAR_snowflake_org: ${{ secrets.SNOWFLAKE_ORG }}
+  TF_VAR_snowflake_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
+  TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
+  TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+  # Add the client's state storage login here, e.g. ARM_CLIENT_ID etc. for Azure
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    concurrency:
+      group: snowflake-dev
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: snowflake-terraform
+    steps:
+      - uses: actions/checkout@v4
+      - id: backend
+        name: Check for a state backend
+        run: |
+          if [ -f backend/dev.hcl ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No backend/dev.hcl yet, so nothing was deployed. Set up the client's state backend first (see README)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - if: steps.backend.outputs.ready == 'true'
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - if: steps.backend.outputs.ready == 'true'
+        run: terraform init -backend-config=backend/dev.hcl
+      - if: steps.backend.outputs.ready == 'true'
+        run: terraform plan -var-file=dev.tfvars -out=tfplan
+      - if: steps.backend.outputs.ready == 'true'
+        run: terraform apply tfplan
