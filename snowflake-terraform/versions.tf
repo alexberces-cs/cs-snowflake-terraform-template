@@ -11,8 +11,8 @@ terraform {
   # uncomment one of the options below, then run:
   #   terraform init -backend-config=backend/<env>.hcl 
 
-  # backend "azurerm" {}   # Azure Storage
+  backend "azurerm" {}   # Azure Storage
   # backend "s3" {}        # AWS S3 (add use_lockfile = true in the .hcl)
   # backend "gcs" {}       # Google Cloud Storage
-  backend "local" {}
+  # backend "local" {}
 }
