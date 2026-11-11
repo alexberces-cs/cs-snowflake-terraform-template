@@ -5,7 +5,7 @@
 
 # path = "../../tf-demo-state/dev.tfstate"
 
-# resource_group_name  = "snowflake-terraform-rg"
+resource_group_name  = "snowflake-terraform-rg"
 storage_account_name = "sttfstatecs123"
 container_name       = "tfstate"
 key                  = "snowflake/dev.tfstate"
