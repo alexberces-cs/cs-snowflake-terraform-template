@@ -29,8 +29,8 @@ bi_read_schemas = ["TGT"]
 # service users: paste each tool's PUBLIC key on one line, without BEGIN/END lines
 elt_user_name       = "SVC_ELT_DEV"
 bi_user_name        = "SVC_BI_DEV"
-elt_user_public_key = "REPLACE_WITH_ELT_PUBLIC_KEY"
-bi_user_public_key  = "REPLACE_WITH_BI_PUBLIC_KEY"
+elt_user_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlfKe+8RB8IqzzdEwtvcUyAgNiYJqfMK9ALxeSm+cnd8ox1g3LRss/7TGt2IODAFr6coPli2/Qn+zwgQSXnQsmQR4p9mQjIW40ji/sDnXBGy8D6F2PHkMMzegOD9J8pkKLQnMPoZMh+rTRlxkVDaK3sxtlzcPh6mmKGgxq++iM1kRsag6iPNsglhsOZLRdCg/21bpDH0g4RaNmP4/oLwFmtGLQ6tGhRroN/rtR4WPSHgG75GuSZyb880suVdOTpmH53VHy5SwqSwwFGP7MPsdJSsQHmH65MtcOJ+BkJUlEC1BMBqcYSIPR756RH4VlCq2D6tptTmVmT144NI+Pn4xmwIDAQAB"
+bi_user_public_key  = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlfKe+8RB8IqzzdEwtvcUyAgNiYJqfMK9ALxeSm+cnd8ox1g3LRss/7TGt2IODAFr6coPli2/Qn+zwgQSXnQsmQR4p9mQjIW40ji/sDnXBGy8D6F2PHkMMzegOD9J8pkKLQnMPoZMh+rTRlxkVDaK3sxtlzcPh6mmKGgxq++iM1kRsag6iPNsglhsOZLRdCg/21bpDH0g4RaNmP4/oLwFmtGLQ6tGhRroN/rtR4WPSHgG75GuSZyb880suVdOTpmH53VHy5SwqSwwFGP7MPsdJSsQHmH65MtcOJ+BkJUlEC1BMBqcYSIPR756RH4VlCq2D6tptTmVmT144NI+Pn4xmwIDAQAB"
 
 # network policy for the service users: leave empty to allow any IP
 network_policy_name = "DEV_SERVICE_USERS_POLICY"
