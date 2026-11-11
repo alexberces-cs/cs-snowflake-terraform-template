@@ -14,8 +14,7 @@ env:
   TF_VAR_snowflake_user: ${{ secrets.SNOWFLAKE_USER }}
   TF_VAR_snowflake_role: ${{ secrets.SNOWFLAKE_ROLE }}
   TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
-  # Add the client's state storage login here, e.g. ARM_CLIENT_ID etc. for Azure
-
+  ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
 jobs:
   checks:
     runs-on: ubuntu-latest
