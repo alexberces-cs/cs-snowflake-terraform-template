@@ -20,7 +20,7 @@ bi_db_role_name = "BI_DEV_ROLE"
 # cost controls: credits per month across both warehouses
 resource_monitor_name        = "DEV_MONITOR"
 monthly_credit_quota         = 20
-monitor_notify_users         = []   # e.g. ["JANE_DOE"], users need a verified email
+monitor_notify_users         = [] # e.g. ["JANE_DOE"], users need a verified email
 statement_timeout_in_seconds = 3600
 
 # BI can read these schemas only
@@ -34,7 +34,7 @@ bi_user_public_key  = "REPLACE_WITH_BI_PUBLIC_KEY"
 
 # network policy for the service users: leave empty to allow any IP
 network_policy_name = "DEV_SERVICE_USERS_POLICY"
-allowed_ip_list     = []   # e.g. ["203.0.113.0/24"]
+allowed_ip_list     = [] # e.g. ["203.0.113.0/24"]
 
 # ingestion from Azure (optional)
 enable_ingestion         = false
